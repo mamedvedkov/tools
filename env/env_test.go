@@ -1,11 +1,12 @@
 package env
 
 import (
+	"os"
+	"testing"
+
 	"github.com/go-logr/zapr"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
-	"os"
-	"testing"
 )
 
 var logger = zapr.NewLogger(zap.NewExample())

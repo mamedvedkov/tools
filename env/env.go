@@ -2,9 +2,10 @@ package env
 
 import (
 	"fmt"
-	"github.com/go-logr/logr"
 	"os"
 	"strconv"
+
+	"github.com/go-logr/logr"
 )
 
 type Env struct {
