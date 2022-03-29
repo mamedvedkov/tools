@@ -51,10 +51,14 @@ func NewApp() *App {
 		panic(err)
 	}
 
-	return &App{
+	a := &App{
 		ctx: context.Background(),
 		l:   zapr.NewLogger(zapLogger),
 	}
+
+	a.AddWorkers(SignalNotify)
+
+	return a
 }
 
 func (a *App) Logger() logr.Logger {
