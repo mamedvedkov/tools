@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/go-logr/logr v1.2.2
 	github.com/go-logr/zapr v1.2.3
+	github.com/robfig/cron/v3 v3.0.1
 	github.com/rotisserie/eris v0.5.2
 	github.com/stretchr/testify v1.7.0
 	go.uber.org/zap v1.21.0

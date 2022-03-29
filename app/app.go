@@ -46,9 +46,14 @@ func NewAppWithOpts(opts ...Option) *App {
 }
 
 func NewApp() *App {
+	zapLogger, err := zap.NewProduction(zap.AddCaller())
+	if err != nil {
+		panic(err)
+	}
+
 	return &App{
 		ctx: context.Background(),
-		l:   zapr.NewLogger(zap.NewExample()),
+		l:   zapr.NewLogger(zapLogger),
 	}
 }
 
@@ -56,7 +61,7 @@ func (a *App) Logger() logr.Logger {
 	return a.l
 }
 
-func (a *App) addClosers(cls ...func()) *App {
+func (a *App) AddClosers(cls ...func()) *App {
 	a.closers = append(cls, a.closers...)
 
 	return a
